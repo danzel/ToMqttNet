@@ -11,5 +11,8 @@ namespace ToMqttNet
 		public string NodeId { get; set; } = null!;
 		public string Server { get; set; } = "mosquitto";
 		public int Port { get; set; } = 1883;
+
+		public string? Username { get; set; }
+		public string? Password { get; set; }
 	}
 }

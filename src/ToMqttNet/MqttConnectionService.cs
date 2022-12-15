@@ -32,18 +32,21 @@ namespace ToMqttNet
 		{
 			var options = new ManagedMqttClientOptionsBuilder()
 				.WithAutoReconnectDelay(TimeSpan.FromSeconds(5))
-				.WithClientOptions(new MqttClientOptionsBuilder()
-					.WithClientId(MqttOptions.ClientId + "-" + _instanceId)
-					.WithTcpServer(MqttOptions.Server, MqttOptions.Port)
-					.WithWillMessage(
-						new MqttApplicationMessageBuilder()
-							.WithPayload("0")
-							.WithTopic($"{MqttOptions.NodeId}/connected")
-							.WithRetainFlag()
-							.Build()
-					)
-					.Build()
-				)
+				.WithClientOptions(mcob =>
+				{
+					mcob.WithClientId(MqttOptions.ClientId + "-" + _instanceId)
+						.WithTcpServer(MqttOptions.Server, MqttOptions.Port)
+						.WithWillMessage(
+							new MqttApplicationMessageBuilder()
+								.WithPayload("0")
+								.WithTopic($"{MqttOptions.NodeId}/connected")
+								.WithRetainFlag()
+								.Build()
+						);
+
+					if (MqttOptions.Username != null && MqttOptions.Password != null)
+						mcob.WithCredentials(MqttOptions.Username!, MqttOptions.Password!);
+				})
 				.Build();
 
 			_mqttClient = new MqttFactory()

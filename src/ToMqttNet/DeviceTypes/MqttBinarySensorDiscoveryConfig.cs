@@ -5,6 +5,9 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt binary sensor platform uses an MQTT message received to set the binary sensor’s state to on or off.
 	/// </summary>
+	/// <remarks>
+	/// https://www.home-assistant.io/integrations/binary_sensor.mqtt/
+	/// </remarks>
 	public class MqttBinarySensorDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
 	{
 		public override string Component => "binary_sensor";
@@ -12,6 +15,9 @@ namespace ToMqttNet
 		///<summary>
 		/// Sets the class of the device, changing the device state and icon that is displayed on the frontend.
 		///</summary> 
+		///<remarks>
+		///https://www.home-assistant.io/integrations/binary_sensor/#device-class
+		///</remarks>
 		[JsonProperty("device_class")]
 		public string? DeviceClass { get; set; }
 

@@ -7,7 +7,7 @@ namespace ToMqttNet
 	/// 
 	/// This is the json template
 	/// </summary>
-	public class MqttJsonLightDiscoveryConfig : MqttDiscoveryConfig
+	public class MqttJsonLightDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
 	{
 		public override string Component => "light";
 

@@ -6,7 +6,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// This mqtt sensor platform uses the MQTT message payload as the sensor value. If messages in this state_topic are published with RETAIN flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 	/// </summary>
-	public class MqttSensorDiscoveryConfig : MqttDiscoveryConfig
+	public class MqttSensorDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
 	{
 		public override string Component => "sensor";
 

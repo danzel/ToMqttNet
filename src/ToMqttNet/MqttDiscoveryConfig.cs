@@ -199,8 +199,13 @@ public class MqttDiscoveryDevice
 	/// </summary>
 	[JsonProperty("identifiers")]
 	public List<string>? Identifiers { get; set; }
-
 }
+
+public interface IMqttDiscoveryDeviceWithState
+{
+	string? StateTopic { get; set; }
+}
+
 
 public enum MqttDiscoveryStateClass
 {

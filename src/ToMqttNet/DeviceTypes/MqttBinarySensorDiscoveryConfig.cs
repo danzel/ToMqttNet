@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt binary sensor platform uses an MQTT message received to set the binary sensor’s state to on or off.
 	/// </summary>
-	public class MqttBinarySensorDiscoveryConfig : MqttDiscoveryConfig
+	public class MqttBinarySensorDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
 	{
 		public override string Component => "binary_sensor";
 

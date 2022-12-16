@@ -206,6 +206,11 @@ public interface IMqttDiscoveryDeviceWithState
 	string? StateTopic { get; set; }
 }
 
+public interface IMqttDiscoveryDeviceWithCommand
+{
+	string? CommandTopic { get; set; }
+}
+
 
 public enum MqttDiscoveryStateClass
 {

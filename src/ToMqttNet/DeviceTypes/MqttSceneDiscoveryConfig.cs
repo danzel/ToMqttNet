@@ -6,7 +6,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt scene platform lets you control your MQTT enabled scenes.
 	/// </summary>
-	public class MqttSceneDiscoveryConfig : MqttDiscoveryConfig
+	public class MqttSceneDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithCommand
 	{
 		public override string Component => "scene";
 

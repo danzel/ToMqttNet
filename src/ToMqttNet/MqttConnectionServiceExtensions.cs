@@ -29,6 +29,15 @@ namespace ToMqttNet
 			config.StateTopic = connect.GetStateTopic(config);
 			return config;
 		}
+
+		/// <summary>
+		/// Populate the <see cref="IMqttDiscoveryDeviceWithCommand.CommandTopic"/> of the given config object, and return it
+		/// </summary>
+		public static T PopulateCommandTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithCommand
+		{
+			config.CommandTopic = connect.GetTopic(config, "set");
+			return config;
+		}
 	}
 
 	public static class MqttConnectionServiceExtensions
@@ -47,7 +56,7 @@ namespace ToMqttNet
 		}
 
 		/// <summary>
-		/// Get the tpoic that the given <see cref="MqttDiscoveryConfig"/> should use with the given <paramref name="leaf"/>
+		/// Get the topic that the given <see cref="MqttDiscoveryConfig"/> should use with the given <paramref name="leaf"/>
 		/// </summary>
 		/// <example>
 		/// homeassistant/binary_sensor/my-node/my-sensor/state

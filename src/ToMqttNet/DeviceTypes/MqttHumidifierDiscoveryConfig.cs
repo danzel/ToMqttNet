@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt humidifier platform lets you control your MQTT enabled humidifiers.
 	/// </summary>
-	public class MqttHumidifierDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+	public class MqttHumidifierDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState, IMqttDiscoveryDeviceWithCommand
 	{
 		public override string Component => "humidifier";
 

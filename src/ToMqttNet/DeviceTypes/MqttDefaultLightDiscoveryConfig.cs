@@ -7,7 +7,7 @@ namespace ToMqttNet
 	/// 
 	/// This is the default template
 	/// </summary>
-	public class MqttDefaultLightDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+	public class MqttDefaultLightDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState, IMqttDiscoveryDeviceWithCommand
 	{
 		public override string Component => "light";
 

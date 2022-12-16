@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt vacuum integration allows you to control your MQTT-enabled vacuum. There are two possible message schemas - legacy and state, chosen by setting the schema configuration parameter. New installations should use the state schema as legacy is deprecated and might be removed someday in the future. The state schema is preferred because the vacuum will then be represented as a StateVacuumDevice which is the preferred parent vacuum entity.
 	/// </summary>
-	public class MqttVacuumDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+	public class MqttVacuumDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState, IMqttDiscoveryDeviceWithCommand
 	{
 		public override string Component => "vacuum";
 

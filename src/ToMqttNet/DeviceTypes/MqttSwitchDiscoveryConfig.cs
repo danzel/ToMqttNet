@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt switch platform lets you control your MQTT enabled switches.
 	/// </summary>
-	public class MqttSwitchDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter, IMqttDiscoveryDeviceWithCommand
+	public class MqttSwitchDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter, IMqttDiscoveryDeviceWithCommandGetter, IMqttDiscoveryDeviceWithCommandSetter
 	{
 		public override string Component => "switch";
 

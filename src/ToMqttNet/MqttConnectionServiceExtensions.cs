@@ -31,9 +31,9 @@ namespace ToMqttNet
 		}
 
 		/// <summary>
-		/// Populate the <see cref="IMqttDiscoveryDeviceWithCommand.CommandTopic"/> of the given config object, and return it
+		/// Populate the <see cref="IMqttDiscoveryDeviceWithCommandSetter.CommandTopic"/> of the given config object, and return it
 		/// </summary>
-		public static T PopulateCommandTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithCommand
+		public static T PopulateCommandTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithCommandSetter
 		{
 			config.CommandTopic = connect.GetTopic(config, "set");
 			return config;

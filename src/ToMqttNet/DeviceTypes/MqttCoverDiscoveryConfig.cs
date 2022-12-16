@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt cover platform allows you to control an MQTT cover(such as blinds, a roller shutter or a garage door).
 	/// </summary>
-	public class MqttCoverDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter, IMqttDiscoveryDeviceWithCommand
+	public class MqttCoverDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter, IMqttDiscoveryDeviceWithCommandGetter, IMqttDiscoveryDeviceWithCommandSetter
 	{
 		public override string Component => "cover";
 

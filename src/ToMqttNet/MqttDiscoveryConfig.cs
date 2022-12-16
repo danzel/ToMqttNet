@@ -211,7 +211,12 @@ public interface IMqttDiscoveryDeviceWithStateSetter
 	string StateTopic { set; }
 }
 
-public interface IMqttDiscoveryDeviceWithCommand
+public interface IMqttDiscoveryDeviceWithCommandGetter
+{
+	string? CommandTopic { get; }
+}
+
+public interface IMqttDiscoveryDeviceWithCommandSetter
 {
 	string CommandTopic { set; }
 }

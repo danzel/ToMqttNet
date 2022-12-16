@@ -201,14 +201,19 @@ public class MqttDiscoveryDevice
 	public List<string>? Identifiers { get; set; }
 }
 
-public interface IMqttDiscoveryDeviceWithState
+public interface IMqttDiscoveryDeviceWithStateGetter
 {
-	string? StateTopic { get; set; }
+	string? StateTopic { get; }
+}
+
+public interface IMqttDiscoveryDeviceWithStateSetter
+{
+	string StateTopic { set; }
 }
 
 public interface IMqttDiscoveryDeviceWithCommand
 {
-	string? CommandTopic { get; set; }
+	string CommandTopic { set; }
 }
 
 

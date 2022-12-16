@@ -5,7 +5,7 @@ namespace ToMqttNet
 	/// <summary>
 	/// The mqtt device tracker platform allows you to define new device_trackers through manual YAML configuration in configuration.yaml and also to automatically discover device_trackers through a discovery schema using the MQTT Discovery protocol.
 	/// </summary>
-	public class MqttDeviceTrackerDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+	public class MqttDeviceTrackerDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter
 	{
 		public override string Component => "device_tracker";
 

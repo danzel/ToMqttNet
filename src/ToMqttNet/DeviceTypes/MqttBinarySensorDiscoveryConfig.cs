@@ -8,7 +8,7 @@ namespace ToMqttNet
 	/// <remarks>
 	/// https://www.home-assistant.io/integrations/binary_sensor.mqtt/
 	/// </remarks>
-	public class MqttBinarySensorDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+	public class MqttBinarySensorDiscoveryConfig : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateGetter, IMqttDiscoveryDeviceWithStateSetter
 	{
 		public override string Component => "binary_sensor";
 

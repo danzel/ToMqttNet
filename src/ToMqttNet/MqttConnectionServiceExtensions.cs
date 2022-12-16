@@ -22,9 +22,9 @@ namespace ToMqttNet
 		}
 
 		/// <summary>
-		/// Populate the <see cref="IMqttDiscoveryDeviceWithState.StateTopic"/> of the given config object, and return it
+		/// Populate the <see cref="IMqttDiscoveryDeviceWithStateSetter.StateTopic"/> of the given config object, and return it
 		/// </summary>
-		public static T PopulateStateTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithState
+		public static T PopulateStateTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig, IMqttDiscoveryDeviceWithStateSetter
 		{
 			config.StateTopic = connect.GetStateTopic(config);
 			return config;

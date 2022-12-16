@@ -16,7 +16,7 @@ namespace ToMqttNet
 		/// Sets the class of the device, changing the device state and icon that is displayed on the frontend.
 		///</summary> 
 		///<remarks>
-		///https://www.home-assistant.io/integrations/binary_sensor/#device-class
+		/// https://www.home-assistant.io/integrations/binary_sensor/#device-class
 		///</remarks>
 		[JsonProperty("device_class")]
 		public string? DeviceClass { get; set; }

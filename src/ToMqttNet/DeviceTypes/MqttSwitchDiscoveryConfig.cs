@@ -19,6 +19,9 @@ namespace ToMqttNet
 		/// The type/class of the switch to set the icon in the frontend.
 		/// , default: None
 		///</summary> 
+		///<remarks>
+		/// https://www.home-assistant.io/integrations/switch/#device-class
+		///</remarks>
 		[JsonProperty("device_class")]
 		public string? DeviceClass { get; set; }
 

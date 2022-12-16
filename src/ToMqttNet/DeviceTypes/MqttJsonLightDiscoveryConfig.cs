@@ -36,7 +36,7 @@ namespace ToMqttNet
 		/// The MQTT topic to publish commands to change the light’s state.
 		///</summary> 
 		[JsonProperty("command_topic")]
-		public string CommandTopic { get; set; }
+		public required string CommandTopic { get; set; }
 
 		///<summary>
 		/// Flag which defines if the entity should be enabled when first added.

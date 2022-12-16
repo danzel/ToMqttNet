@@ -19,7 +19,7 @@ namespace ToMqttNet
 		/// The MQTT topic to publish commands to change the humidifier state.
 		///</summary> 
 		[JsonProperty("command_topic")]
-		public string CommandTopic { get; set; }
+		public required string CommandTopic { get; set; }
 
 		///<summary>
 		/// The device class of the MQTT device. Must be either humidifier or dehumidifier.
@@ -142,7 +142,7 @@ namespace ToMqttNet
 		/// The MQTT topic to publish commands to change the humidifier target humidity state based on a percentage.
 		///</summary> 
 		[JsonProperty("target_humidity_command_topic")]
-		public string TargetHumidityCommandTopic { get; set; }
+		public required string TargetHumidityCommandTopic { get; set; }
 
 		///<summary>
 		/// The MQTT topic subscribed to receive humidifier target humidity.

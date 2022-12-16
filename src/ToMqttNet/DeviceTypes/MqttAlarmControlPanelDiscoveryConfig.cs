@@ -48,7 +48,7 @@ namespace ToMqttNet
 		/// The MQTT topic to publish commands to change the alarm state.
 		///</summary> 
 		[JsonProperty("command_topic")]
-		public string CommandTopic { get; set; }
+		public required string CommandTopic { get; set; }
 
 		///<summary>
 		/// Flag which defines if the entity should be enabled when first added.
@@ -170,7 +170,7 @@ namespace ToMqttNet
 		/// The MQTT topic subscribed to receive state updates.
 		///</summary> 
 		[JsonProperty("state_topic")]
-		public string StateTopic { get; set; }
+		public required string StateTopic { get; set; }
 
 		///<summary>
 		/// Defines a template to extract the value.

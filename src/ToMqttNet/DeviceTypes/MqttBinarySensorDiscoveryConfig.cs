@@ -118,7 +118,7 @@ namespace ToMqttNet
 		/// The MQTT topic subscribed to receive sensor’s state.
 		///</summary> 
 		[JsonProperty("state_topic")]
-		public string StateTopic { get; set; }
+		public required string StateTopic { get; set; }
 
 		///<summary>
 		/// Defines a template that returns a string to be compared to payload_on/payload_off or an empty string, in which case the MQTT message will be removed. Available variables: entity_id. Remove this option when ‘payload_on’ and ‘payload_off’ are sufficient to match your payloads (i.e no pre-processing of original message is required).

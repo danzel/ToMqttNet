@@ -72,7 +72,7 @@ namespace ToMqttNet
 		/// The MQTT topic subscribed to receive device tracker state changes.
 		///</summary> 
 		[JsonProperty("state_topic")]
-		public string StateTopic { get; set; }
+		public required string StateTopic { get; set; }
 
 		///<summary>
 		/// Defines a template that returns a device tracker state.

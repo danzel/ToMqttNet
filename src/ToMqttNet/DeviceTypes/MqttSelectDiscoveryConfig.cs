@@ -19,7 +19,7 @@ namespace ToMqttNet
 		/// The MQTT topic to publish commands to change the selected option.
 		///</summary> 
 		[JsonProperty("command_topic")]
-		public string CommandTopic { get; set; }
+		public required string CommandTopic { get; set; }
 
 		///<summary>
 		/// Flag which defines if the entity should be enabled when first added.
@@ -73,7 +73,7 @@ namespace ToMqttNet
 		/// List of options that can be selected. An empty list or a list with a single item is allowed.
 		///</summary> 
 		[JsonProperty("options")]
-		public List<string> Options { get; set; }
+		public required List<string> Options { get; set; }
 
 		///<summary>
 		/// The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.

@@ -135,7 +135,7 @@ public class MqttDiscoveryAvailablilty
 	/// An MQTT topic subscribed to receive availability (online/offline) updates.
 	/// </summary>
 	[JsonProperty("topic")]
-	public string Topic { get; init; }
+	public required string Topic { get; init; }
 
 	/// <summary>
 	/// Defines a template to extract device’s availability from the topic. To determine the devices’s availability result of this template will be compared to payload_available and payload_not_available.

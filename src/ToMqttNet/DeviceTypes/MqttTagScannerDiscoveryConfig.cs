@@ -14,7 +14,7 @@ namespace ToMqttNet
 		/// The MQTT topic subscribed to receive tag scanned events.
 		///</summary> 
 		[JsonProperty("topic")]
-		public string Topic { get; set; }
+		public required string Topic { get; set; }
 
 		///<summary>
 		/// Defines a template that returns a tag ID.

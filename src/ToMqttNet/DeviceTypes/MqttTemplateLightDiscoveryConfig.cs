@@ -33,19 +33,19 @@ namespace ToMqttNet
 		/// The template for off state changes. Available variables: state and transition.
 		///</summary> 
 		[JsonProperty("command_off_template")]
-		public string CommandOffTemplate { get; set; }
+		public required string CommandOffTemplate { get; set; }
 
 		///<summary>
 		/// The template for on state changes. Available variables: state, brightness, color_temp, red, green, blue, flash, transition and effect. Values red, green, blue, brightness are provided as integers from range 0-255. Value of color_temp is provided as integer representing mired units.
 		///</summary> 
 		[JsonProperty("command_on_template")]
-		public string CommandOnTemplate { get; set; }
+		public required string CommandOnTemplate { get; set; }
 
 		///<summary>
 		/// The MQTT topic to publish commands to change the light’s state.
 		///</summary> 
 		[JsonProperty("command_topic")]
-		public string CommandTopic { get; set; }
+		public required string CommandTopic { get; set; }
 
 		///<summary>
 		/// Flag which defines if the entity should be enabled when first added.
@@ -72,7 +72,7 @@ namespace ToMqttNet
 		/// List of possible effects.
 		///</summary> 
 		[JsonProperty("effect_list")]
-		public List<string> EffectList { get; set; }
+		public required List<string> EffectList { get; set; }
 
 		///<summary>
 		/// Template to extract effect from the state payload value.

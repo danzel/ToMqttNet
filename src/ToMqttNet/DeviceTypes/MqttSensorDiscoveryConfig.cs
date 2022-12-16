@@ -115,7 +115,7 @@ namespace ToMqttNet
 		/// The MQTT topic subscribed to receive sensor values.
 		///</summary> 
 		[JsonProperty("state_topic")]
-		public string StateTopic { get; set; }
+		public required string StateTopic { get; set; }
 
 		///<summary>
 		/// Defines the units of measurement of the sensor, if any.

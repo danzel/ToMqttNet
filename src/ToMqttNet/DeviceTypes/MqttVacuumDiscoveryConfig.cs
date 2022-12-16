@@ -26,7 +26,7 @@ namespace ToMqttNet
 		/// List of possible fan speeds for the vacuum.
 		///</summary> 
 		[JsonProperty("fan_speed_list")]
-		public List<string> FanSpeedList { get; set; }
+		public required List<string> FanSpeedList { get; set; }
 
 		///<summary>
 		/// Defines a template to extract the JSON dictionary from messages received on the json_attributes_topic. Usage example can be found in MQTT sensor documentation.
@@ -148,6 +148,6 @@ namespace ToMqttNet
 		///start, stop, return_home, status, battery, clean_spot
 		///</summary> 
 		[JsonProperty("supported_features")]
-		public List<string> SupportedFeatures { get; set; }
+		public required List<string> SupportedFeatures { get; set; }
 	}
 }

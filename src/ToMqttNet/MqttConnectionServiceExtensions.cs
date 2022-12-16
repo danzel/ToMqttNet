@@ -38,6 +38,21 @@ namespace ToMqttNet
 			config.CommandTopic = connect.GetTopic(config, "set");
 			return config;
 		}
+
+		/// <summary>
+		/// Set <see cref="MqttDiscoveryConfig.AvailabilityTopic"/> to the default one that we publish to
+		/// </summary>
+		public static T AddDefaultAvailabilityTopic<T>(this T config, IMqttConnectionService connect) where T : MqttDiscoveryConfig
+		{
+			if (config.Availability == null)
+				throw new InvalidOperationException("config.Availability needs to be populated");
+
+			config.Availability.Add(new MqttDiscoveryAvailablilty
+			{
+				Topic = $"{connect.MqttOptions.NodeId}/connected"
+			});
+			return config;
+		}
 	}
 
 	public static class MqttConnectionServiceExtensions

@@ -38,7 +38,7 @@ namespace ToMqttNet
 						.WithTcpServer(MqttOptions.Server, MqttOptions.Port)
 						.WithWillMessage(
 							new MqttApplicationMessageBuilder()
-								.WithPayload("0")
+								.WithPayload("offline")
 								.WithTopic($"{MqttOptions.NodeId}/connected")
 								.WithRetainFlag()
 								.Build()
@@ -58,7 +58,7 @@ namespace ToMqttNet
 
 				await _mqttClient.PublishAsync(
 					new MqttApplicationMessageBuilder()
-						.WithPayload("2")
+						.WithPayload("online")
 						.WithTopic($"{MqttOptions.NodeId}/connected")
 						.WithRetainFlag()
 						.Build());

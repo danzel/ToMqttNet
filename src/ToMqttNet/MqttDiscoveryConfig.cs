@@ -86,7 +86,7 @@ public abstract class MqttDiscoveryConfig
 
 
 	/// <summary>
-	/// When <see cref="Availablilty"/> is configured, this controls the conditions needed to set the entity to available.
+	/// When <see cref="Availability"/> is configured, this controls the conditions needed to set the entity to available.
 	/// <br/>
 	/// If set to <see cref="MqttDiscoveryAvailabilityMode.All"/>, payload_available must be received on all configured availability topics before the entity is marked as online.
 	/// <br/>

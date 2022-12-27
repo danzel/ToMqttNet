@@ -1,4 +1,6 @@
 ﻿using MQTTnet;
+using MQTTnet.Client;
+using MQTTnet.Packets;
 using Newtonsoft.Json;
 
 namespace ToMqttNet

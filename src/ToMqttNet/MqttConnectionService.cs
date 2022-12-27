@@ -3,8 +3,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MQTTnet;
 using MQTTnet.Client;
-using MQTTnet.Client.Options;
 using MQTTnet.Extensions.ManagedClient;
+using MQTTnet.Packets;
 
 namespace ToMqttNet
 {
@@ -36,13 +36,10 @@ namespace ToMqttNet
 				{
 					mcob.WithClientId(MqttOptions.ClientId + "-" + _instanceId)
 						.WithTcpServer(MqttOptions.Server, MqttOptions.Port)
-						.WithWillMessage(
-							new MqttApplicationMessageBuilder()
-								.WithPayload("offline")
-								.WithTopic($"{MqttOptions.NodeId}/connected")
-								.WithRetainFlag()
-								.Build()
-						);
+						.WithWillPayload("offline")
+						.WithWillTopic($"{MqttOptions.NodeId}/connected")
+						.WithWillRetain(true)
+						;
 
 					if (MqttOptions.Username != null && MqttOptions.Password != null)
 						mcob.WithCredentials(MqttOptions.Username!, MqttOptions.Password!);
@@ -52,11 +49,11 @@ namespace ToMqttNet
 			_mqttClient = new MqttFactory()
 				.CreateManagedMqttClient();
 
-			_mqttClient.UseConnectedHandler(async (evnt) =>
+			_mqttClient.ConnectedAsync += async (evnt) =>
 			{
 				_logger.LogInformation("Connected to mqtt: {reason}", evnt.ConnectResult.ReasonString);
 
-				await _mqttClient.PublishAsync(
+				await _mqttClient.EnqueueAsync(
 					new MqttApplicationMessageBuilder()
 						.WithPayload("online")
 						.WithTopic($"{MqttOptions.NodeId}/connected")
@@ -64,26 +61,29 @@ namespace ToMqttNet
 						.Build());
 
 				OnConnect?.Invoke(this, new EventArgs());
-			});
+			};
 
-			_mqttClient.UseDisconnectedHandler((evnt) =>
+			_mqttClient.DisconnectedAsync += (evnt) =>
 			{
 				_logger.LogInformation(evnt.Exception, "Disconnected from mqtt: {reason}", evnt.Reason);
 				OnDisconnect?.Invoke(this, new EventArgs());
-			});
+				return Task.CompletedTask;
+			};
 
-			_mqttClient.UseApplicationMessageReceivedHandler((evnt) =>
+			_mqttClient.ApplicationMessageReceivedAsync += (evnt) =>
 			{
 				_logger.LogTrace("{topic}: {message}", evnt.ApplicationMessage.Topic, evnt.ApplicationMessage.ConvertPayloadToString());
 				OnApplicationMessageReceived?.Invoke(this, evnt);
-			});
+				return Task.CompletedTask;
+			};
 
 			await _mqttClient.StartAsync(options);
 		}
 
-		public Task PublishAsync(params MqttApplicationMessage[] applicationMessages)
+		public async Task PublishAsync(params MqttApplicationMessage[] applicationMessages)
 		{
-			return _mqttClient!.PublishAsync(applicationMessages);
+			foreach (var msg in applicationMessages)
+				await _mqttClient!.EnqueueAsync(msg);
 		}
 
 		public Task SubscribeAsync(params MqttTopicFilter[] topics)

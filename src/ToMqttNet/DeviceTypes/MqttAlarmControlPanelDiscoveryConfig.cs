@@ -178,5 +178,12 @@ namespace ToMqttNet
 		[JsonProperty("value_template")]
 		public string? ValueTemplate { get; set; }
 
+
+		/// <summary>
+		/// A list of features that the alarm control panel supports.The available list options are arm_home, arm_away, arm_night, arm_vacation, arm_custom_bypass, and trigger.
+		/// Default: [“arm_home”, “arm_away”, “arm_night”, “arm_vacation”, “arm_custom_bypass”, “trigger”]
+		/// </summary>
+		[JsonProperty("supported_features")]
+		public required List<string> SupportedFeatures { get; set; }
 	}
 }
